@@ -50,5 +50,16 @@ namespace Inventory
 			else
 				lblMessage.Text = "Something's wrong";
 		}
+
+        protected void btnRemove_Click(object sender, EventArgs e)
+        {
+			Product product1 = new Product();
+			product1.Product_Id = product.Product_Id;
+			int i = sqlHelper.RemoveProduct(product1);
+			if (i == 1)
+				Response.Redirect("Inventory.aspx");
+			else
+				lblMessage.Text = "Something's wrong";
+		}
     }
 }

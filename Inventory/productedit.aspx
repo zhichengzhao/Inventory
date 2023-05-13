@@ -21,7 +21,8 @@
 
             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
-            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+            <asp:Button ID="btnRemove" runat="server" Text="RemoveProduct" OnClick="btnRemove_Click" />
+            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label><br />
         </div>
     </form>
 </body>

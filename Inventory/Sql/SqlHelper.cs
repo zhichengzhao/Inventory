@@ -9,15 +9,16 @@ namespace Inventory.Sql
 {
 	public class SqlHelper
 	{
-		string connstring = "";
+		static string connstring = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
+			"AttachDbFilename=C:\\Users\\zhicheng\\source\\repos\\Inventory\\Inventory\\App_Data\\Warehouse.mdf;" +
+			"Integrated Security=True";
 		SqlConnection conn = null;
 
 		public SqlHelper() {
-			connstring = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\zhicheng\\source\\repos\\Inventory\\Inventory\\App_Data\\Warehouse.mdf;Integrated Security=True";
 			conn = new SqlConnection(connstring);
 		}
 
-		//name, desc is require. other input will be ignored.
+		//param: product name, product desc
 		public int AddProduct(Product p) { 
 			List<SqlParameter> pram = p.ParamList(true);
 			SqlCommand sqlCommand = new SqlCommand();
@@ -32,23 +33,22 @@ namespace Inventory.Sql
 			return result;
 		}
 
-		//product id is required. 
+		//param: product id
 		public int RemoveProduct(Product p)
 		{
-			List<SqlParameter> pram = p.ParamList(true);
+			List<SqlParameter> pram = p.ParamList(false);
 			SqlCommand sqlCommand = new SqlCommand();
 			sqlCommand.Connection = conn;
 			sqlCommand.CommandType = CommandType.StoredProcedure;
-			sqlCommand.CommandText = "Products_AddProduct";
+			sqlCommand.CommandText = "Products_RemoveProduct";
 			foreach (SqlParameter s in pram) sqlCommand.Parameters.Add(s);
 			conn.Open();
-			sqlCommand.ExecuteNonQuery();
+			int result = sqlCommand.ExecuteNonQuery();
 			conn.Close();
-			int result = (int)sqlCommand.Parameters["@result"].Value;
 			return result;
 		}
 
-		//product id is required. 
+		//param: product id
 		public Product GetProduct(int id)
 		{
 			Product product = new Product();
@@ -90,7 +90,6 @@ namespace Inventory.Sql
 		}
 
 		//param: product id, product name, product desc
-		//
 		public int EditProduct(Product p)
 		{
 			List<SqlParameter> pram = p.ParamList(false);
@@ -106,7 +105,35 @@ namespace Inventory.Sql
 			return result;
 		}
 
+		//param: product id, product qty
+		public int InboundProduct(Product p)
+		{
+			List<SqlParameter> pram = p.ParamList(false);
+			SqlCommand sqlCommand = new SqlCommand();
+			sqlCommand.Connection = conn;
+			sqlCommand.CommandType = CommandType.StoredProcedure;
+			sqlCommand.CommandText = "Products_Inbound";
+			foreach (SqlParameter s in pram) sqlCommand.Parameters.Add(s);
+			conn.Open();
+			int result = sqlCommand.ExecuteNonQuery();
+			conn.Close();
+			return result;
+		}
 
-
+		//param: product id, product qty
+		public int OutboundProduct(Product p)
+		{
+			List<SqlParameter> pram = p.ParamList(true);
+			SqlCommand sqlCommand = new SqlCommand();
+			sqlCommand.Connection = conn;
+			sqlCommand.CommandType = CommandType.StoredProcedure;
+			sqlCommand.CommandText = "Products_Outbound";
+			foreach (SqlParameter s in pram) sqlCommand.Parameters.Add(s);
+			conn.Open();
+			sqlCommand.ExecuteNonQuery();
+			conn.Close();
+			int result = (int)sqlCommand.Parameters["@result"].Value;
+			return result;
+		}
 	}
 }
