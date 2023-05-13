@@ -9,6 +9,7 @@ namespace Inventory
 	public partial class Inventory : System.Web.UI.Page
 	{
 		string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\zhicheng\\source\\repos\\Inventory\\Inventory\\App_Data\\Warehouse.mdf;Integrated Security=True";
+		
 		protected void Page_Load(object sender, EventArgs e)
 		{
 
@@ -25,8 +26,8 @@ namespace Inventory
 			lblMessage.Text = "you click on the " + gvr.RowIndex + "row";
 			int productid = int.Parse(GridView1.Rows[i].Cells[0].Text);
 			lblMessage.Text = "you click on the " + gvr.RowIndex + "row. product id is "+productid;
-			string page = "ProductEditingPage.aspx?productid=" + productid;
-			Response.Redirect(page);
+			string page = "productedit.aspx?productid=" + productid;
+			Response.Redirect(page,true);
 		}
 
 		protected void btnAddProduct_Click(object sender, EventArgs e)

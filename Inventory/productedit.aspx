@@ -19,8 +19,9 @@
             <asp:Label ID="lblProductDesc_Pre" runat="server" Text=""></asp:Label><br />
             <asp:TextBox ID="tbProductDesc" runat="server"></asp:TextBox> <br />
 
-            <asp:Button ID="btnSave" runat="server" Text="Save"  />
+            <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"  />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" />
+            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
         </div>
     </form>
 </body>

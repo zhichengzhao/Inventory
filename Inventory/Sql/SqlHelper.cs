@@ -52,7 +52,7 @@ namespace Inventory.Sql
 		public Product GetProduct(int id)
 		{
 			Product product = new Product();
-			product.Product_Id = id;
+			
 			//List<SqlParameter> pram = GenerateParam(product,false);
 			SqlCommand sqlCommand = new SqlCommand();
 			sqlCommand.Connection = conn;
@@ -73,6 +73,7 @@ namespace Inventory.Sql
 				SqlDataReader r = sqlCommand.ExecuteReader();
 				if (r.Read())
 				{
+					product.Product_Id = id;
 					product.Product_Name = r["product_name"].ToString();
 					product.Product_Desc = r["product_description"].ToString();
 					product.Product_Qty = (int)r["product_quantity"];
@@ -87,6 +88,24 @@ namespace Inventory.Sql
 			conn.Close();
 			return product;
 		}
+
+		//param: product id, product name, product desc
+		//
+		public int EditProduct(Product p)
+		{
+			List<SqlParameter> pram = p.ParamList(false);
+			SqlCommand sqlCommand = new SqlCommand();
+			sqlCommand.Connection = conn;
+			sqlCommand.CommandType = CommandType.StoredProcedure;
+			sqlCommand.CommandText = "Products_EditProduct";
+			foreach (SqlParameter s in pram) sqlCommand.Parameters.Add(s);
+			conn.Open();
+			int result = sqlCommand.ExecuteNonQuery();
+			conn.Close();
+			//int result = (int)sqlCommand.Parameters["@result"].Value;
+			return result;
+		}
+
 
 
 	}
