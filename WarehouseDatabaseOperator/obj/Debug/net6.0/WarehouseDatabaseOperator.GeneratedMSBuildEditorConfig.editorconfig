@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WarehouseDatabaseOperator
-build_property.ProjectDir = C:\Users\Administrator\Documents\GitHub\Inventory\WarehouseDatabaseOperator\
+build_property.ProjectDir = C:\Users\zhicheng\source\repos\Inventory\WarehouseDatabaseOperator\

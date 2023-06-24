@@ -67,10 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Inventory.mdf" />
-    <Content Include="App_Data\Inventory_log.ldf">
-      <DependentUpon>Inventory.mdf</DependentUpon>
-    </Content>
     <Content Include="Comp\HtmlPage1.html" />
     <Content Include="productadd.aspx" />
     <Content Include="Inventory.aspx" />

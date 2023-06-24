@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\Documents\\GitHub\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj": {}
+    "C:\\Users\\zhicheng\\source\\repos\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\Documents\\GitHub\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj": {
+    "C:\\Users\\zhicheng\\source\\repos\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\Documents\\GitHub\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj",
+        "projectUniqueName": "C:\\Users\\zhicheng\\source\\repos\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj",
         "projectName": "WarehouseDatabaseOperator",
-        "projectPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\Documents\\GitHub\\Inventory\\WarehouseDatabaseOperator\\obj\\",
+        "projectPath": "C:\\Users\\zhicheng\\source\\repos\\Inventory\\WarehouseDatabaseOperator\\WarehouseDatabaseOperator.csproj",
+        "packagesPath": "C:\\Users\\zhicheng\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zhicheng\\source\\repos\\Inventory\\WarehouseDatabaseOperator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zhicheng\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
